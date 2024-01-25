@@ -1,0 +1,2 @@
+# Resources
+This folder contains assets that can be loaded on-demand from a script instead of creating an instance. The assets located in the Resources folder can then be called in a script using the **Resources.Load** function. 
