@@ -10,7 +10,7 @@ A common asset folder structure is applied, in which assets are organized by typ
 
 The project includes the following extensions:
 
-* **Note:** Some of the extensions below will require Git. Install the latest version of Git here [https://git-scm.com/downloads](https://git-scm.com/downloads)* 
+> **Note:** Some of the extensions below will require Git. Install the latest version of Git here [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
 - **Unity Hierarchy Folders:** Creates specialized folder object for organizing game objects in Unity Hierarchy. [https://github.com/xsduan/unity-hierarchy-folders?tab=readme-ov-file](https://github.com/xsduan/unity-hierarchy-folders?tab=readme-ov-file)
 
