@@ -1024,8 +1024,7 @@ MonoBehaviour:
   startScene: main_menu
   endScene: end_scene
   gameLevels:
-  - _Scene_0
-  - _Scene_1
+  - ApplePicker
   gameLevelsCount: 0
   gameTitle: ...Sure is a game, innit?
   gameCredits: Made by Leslie Graff

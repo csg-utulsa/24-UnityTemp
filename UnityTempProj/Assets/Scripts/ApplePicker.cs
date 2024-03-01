@@ -1,8 +1,8 @@
-/***** Created by: Leslie Graff
- * * Date Created: Feb 16, 2024*
- * * Last Edited by:*
- * Last Edited:**
- * Description: ApplePicker basket instantiation Script.
+/***** 
+ * Created by: Leslie Graff
+ * * Date Created: Feb 16, 2024
+ * ** Last Edited by:* Last Edited:
+ * ** Description: ApplePicker basket instantiation Script.
  * ****/
 using System.Collections;
 using System.Collections.Generic;
@@ -46,9 +46,7 @@ public class ApplePicker : MonoBehaviour
         GameObject tBasketGO = basketList[basketIndex];
         //remove the basket from the list and destroy the game object
         basketList.RemoveAt(basketIndex);
-        //Destroy(tBasketGO);
-        Basket basket = tBasketGO.GetComponent<Basket>();
-        basket.DestroyBasket();
+        Destroy(tBasketGO);
 
         //if there are no baskets left restart the game
         if (basketList.Count == 0)

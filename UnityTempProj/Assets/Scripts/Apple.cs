@@ -1,7 +1,7 @@
-/***** Created by: Leslie Graff
- * * Date Created: Feb 16, 2024*
- * * Last Edited by:*
- * Last Edited:** 
+/*****
+ * Created by: Leslie Graff
+ * * Date Created: Feb 16, 2024**
+ * Last Edited by:* Last Edited:**
  * Description: Apple Script.
  * ****/
 

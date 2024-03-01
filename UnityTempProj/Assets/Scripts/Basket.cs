@@ -68,7 +68,7 @@ public class Basket : MonoBehaviour
             }
             if (score == 3500)
             {
-                gm.LoadLevel
+                gm.BeatLevel();
             }
 
         }
