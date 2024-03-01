@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/main_menu.unity
+    path: Assets/Scenes/Menus/main_menu.unity
     guid: 56bb1d4f95949f24f865f424a0ead6d3
   - enabled: 1
-    path: Assets/Scenes/ApplePicker.unity
+    path: Assets/Scenes/Levels/ApplePicker.unity
     guid: e73df86d4dac98044b7381a8535b4c4e
   - enabled: 1
-    path: Assets/Scenes/end_scene.unity
+    path: Assets/Scenes/Menus/end_scene.unity
     guid: 2d9afe79c8a0db647bf25fc0a3cdd7d4
   m_configObjects: {}
