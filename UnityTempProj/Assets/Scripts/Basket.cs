@@ -78,10 +78,9 @@ public class Basket : MonoBehaviour
 
 
 
-    public void DestroyBasket()
+    public void OnDestroy()
     {
         gm.LostLife();
         Debug.Log("Lostlife");
-        Destroy(this.gameObject);
     }
 }

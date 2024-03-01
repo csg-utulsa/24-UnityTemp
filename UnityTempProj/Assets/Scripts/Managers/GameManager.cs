@@ -8,7 +8,7 @@
  * 
  * Description: Basic GameManager Template
 ****/
-using System; //C# Library for system properites
+using System; //C# Library for system properties
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     static public int score;  //score value
     public int Score { get { return score; } set { score = value; } }//access to static variable score [get/set methods]
 
-    [Tooltip("Will the high score be recoreded")]
+    [Tooltip("Will the high score be recorded")]
     public bool recordHighScore = false; //is the High Score recorded
 
     [SerializeField] //Access to private variables in editor
@@ -114,10 +114,6 @@ public class GameManager : MonoBehaviour
     //test next level
     [SerializeField] //Access to private variables in editor
     private bool levelBeat = false; //test for beating the level
-
-
-
-
 
 
 
@@ -218,7 +214,6 @@ public class GameManager : MonoBehaviour
 
             case GameState.gameExited:
                 Debug.Log("Game Exited");
-                UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
                 break;
 
@@ -307,7 +302,7 @@ public class GameManager : MonoBehaviour
             //if the high score, is less than the default high score
             if (highScore <= defaultHighScore)
             {
-                highScore = defaultHighScore; //set the high score to defulat
+                highScore = defaultHighScore; //set the high score to default
                 PlayerPrefs.SetInt("HighScore", highScore); //update high score PlayerPref
             }//end if (highScore <= defaultHighScore)
         }//end  if (recordHighScore) 
@@ -385,7 +380,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Run Test");
 
-        //test for lossing level
+        //test for losing level
         if (levelLost) { levelLost = false; LostLife(); }
 
         //test for winning level
