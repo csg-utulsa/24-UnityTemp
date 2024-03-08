@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 1486749525}
   - component: {fileID: 1486749524}
   - component: {fileID: 1486749527}
+  - component: {fileID: 1486749528}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -743,6 +744,19 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1486749528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486749523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0bc850ec1d26c4dbbfb9946343b644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camZ: 0
 --- !u!1 &1890311541
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 5283000204253942983, guid: 87958a85a31c1cf489d433838912ccee,
     type: 3}
+  velocityMult: 10
   launchPoint: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
@@ -970,8 +985,8 @@ Transform:
   m_GameObject: {fileID: 2133326875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 4}
+  m_LocalPosition: {x: 100, y: -10, z: 0}
+  m_LocalScale: {x: 400, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
