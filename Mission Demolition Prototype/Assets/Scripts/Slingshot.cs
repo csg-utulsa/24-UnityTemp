@@ -7,12 +7,14 @@ public class Slingshot : MonoBehaviour
     //fields set in the inspector pane
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
+    public float velocityMult = 8f;
 
     [Header("Set Dynamicially")]
     public GameObject launchPoint;
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
+    private Rigidbody projectileRigidBody;
 
      void Awake()
     {
@@ -31,7 +33,33 @@ public class Slingshot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if slingshot is not in aiming mode dont run this code
+        if (!aimingMode) return;
+        //get the current mouse position in2D scrn coords
+        Vector3 mousePos2D = Input.mousePosition;
+        mousePos2D.z = -Camera.main.transform.position.z;
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        //find the delta from the launchPos to the mousePos3D
+        Vector3 mouseDelta = mousePos3D - launchPos;
+        //limit mousedelta to the radius of the slingshot sphere collider
+        float maxMagnitude = this.GetComponent < SphereCollider >().radius;
+        if (mouseDelta.magnitude> maxMagnitude)
+        {
+            mouseDelta.Normalize();
+            mouseDelta *= maxMagnitude;
+        }
+        //move the projectile to this new position
+        Vector3 projpos = launchPos + mouseDelta;
+        projectile.transform.position = projpos;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            //the mouse has been released
+            aimingMode = false;
+            projectileRigidBody.isKinematic = false;
+            projectileRigidBody.velocity = -mouseDelta * velocityMult;
+            projectile = null;
+        }
     }
 
     void OnMouseEnter()
@@ -54,7 +82,8 @@ public class Slingshot : MonoBehaviour
         //Start it at launchpoint
         projectile.transform.position = launchPos;
         //Set it to isKinematic for now
-        projectile.GetComponent<Rigidbody>().isKinematic = true;
+        projectileRigidBody = projectile.GetComponent<Rigidbody>();
+        projectileRigidBody.isKinematic = true;
     }
         
     }
