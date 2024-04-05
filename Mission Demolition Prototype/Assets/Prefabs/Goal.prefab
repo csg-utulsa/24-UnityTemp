@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2337747288593476158}
   - component: {fileID: 8073445205339878727}
   - component: {fileID: 270470828614767445}
+  - component: {fileID: 1132519311502938700}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1132519311502938700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564865183675166474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6f07483e5f57040affa24f1a6e6def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

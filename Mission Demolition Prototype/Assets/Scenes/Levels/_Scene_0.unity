@@ -272,37 +272,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &240138650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 240138651}
-  m_Layer: 0
-  m_Name: CloudAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &240138651
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240138650}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &320550564
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,11 +552,11 @@ Halo:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745939863}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Color:
     serializedVersion: 2
     rgba: 4290756543
-  m_Size: 3
+  m_Size: 1
 --- !u!1 &875254597
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,13 +747,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1486749523}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1486749530}
+        m_TargetAssemblyTypeName: MissionDemolition, Assembly-CSharp
+        m_MethodName: SwitchView
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -906,6 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127070659}
   - component: {fileID: 1127070658}
+  - component: {fileID: 1127070660}
   m_Layer: 0
   m_Name: ProjectileLine
   m_TagString: Untagged
@@ -1031,6 +1001,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1127070660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127070657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481ef83fa43244e4c9b1d7007918339c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDist: 0.1
 --- !u!1 &1184307288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,8 +1267,9 @@ GameObject:
   - component: {fileID: 1486749525}
   - component: {fileID: 1486749524}
   - component: {fileID: 1486749527}
-  - component: {fileID: 1486749528}
   - component: {fileID: 1486749529}
+  - component: {fileID: 1486749528}
+  - component: {fileID: 1486749530}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -1420,12 +1404,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486749523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f0bc850ec1d26c4dbbfb9946343b644, type: 3}
+  m_Script: {fileID: 11500000, guid: 33ad18977414c5448a7f99094bba70c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easing: 0.05
-  minXY: {x: 0, y: 0}
-  camZ: 0
+  numClouds: 40
+  cloudPrefab: {fileID: 6881526273207038720, guid: 861860ee7cbb9b443bfb9c09bacc2c89,
+    type: 3}
+  cloudPosMin: {x: -50, y: -5, z: 10}
+  cloudPosMax: {x: 150, y: 100, z: 10}
+  cloudScaleMin: 1
+  cloudScaleMax: 3
+  cloudSpeedMult: 0.5
 --- !u!114 &1486749529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,9 +1424,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486749523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ad18977414c5448a7f99094bba70c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f0bc850ec1d26c4dbbfb9946343b644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easing: 0.05
+  minXY: {x: 0, y: 0}
+  camZ: 0
+--- !u!114 &1486749530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486749523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c3d8681518964fb6226e01656c8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uitLevel: {fileID: 0}
+  uitShots: {fileID: 0}
+  uitButton: {fileID: 0}
+  castlePos: {x: 50, y: -9.5, z: 0}
+  castles:
+  - {fileID: 609970812110129690, guid: acffbc2a8625a2c4db248bf7e012be0e, type: 3}
+  - {fileID: 6248762741438191889, guid: 7605c27de5da40049b9e95b7e8453e53, type: 3}
+  - {fileID: 8778855860741452830, guid: 3372817e9a3837b4a88332fe9dd5c447, type: 3}
+  - {fileID: 1405259782553168087, guid: 765cfcbdcbab71141a0ab561f70277aa, type: 3}
+  level: 0
+  levelMax: 0
+  shotsTaken: 0
+  castle: {fileID: 0}
+  mode: 0
+  showing: Show Slingshot
 --- !u!1 &1742579858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,9 +1716,10 @@ MonoBehaviour:
   prefabProjectile: {fileID: 5283000204253942983, guid: 87958a85a31c1cf489d433838912ccee,
     type: 3}
   velocityMult: 10
-  launchPoint: {fileID: 0}
+  launchPoint: {fileID: 745939863}
   launchPos: {x: 0, y: 0, z: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 5283000204253942983, guid: 87958a85a31c1cf489d433838912ccee,
+    type: 3}
   aimingMode: 0
 --- !u!1 &1982193133
 GameObject:
@@ -1840,7 +1860,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -1918,7 +1938,6 @@ SceneRoots:
   - {fileID: 4727626}
   - {fileID: 2133326879}
   - {fileID: 1890311545}
-  - {fileID: 240138651}
   - {fileID: 1127070659}
   - {fileID: 1982193137}
   - {fileID: 1022533365}

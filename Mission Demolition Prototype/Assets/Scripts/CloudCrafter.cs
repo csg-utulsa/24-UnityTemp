@@ -57,7 +57,7 @@ public class CloudCrafter : MonoBehaviour
     void Update()
     {
         //iterate over each cloud that was created
-        foreach(GameObject cloud in cloudInstances{
+        foreach(GameObject cloud in cloudInstances){
             //Get the cloud scale and position
             float scaleVal = cloud.transform.localScale.x;
             Vector3 cPos = cloud.transform.position;
