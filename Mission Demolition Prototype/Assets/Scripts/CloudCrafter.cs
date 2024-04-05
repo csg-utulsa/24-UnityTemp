@@ -41,6 +41,8 @@ public class CloudCrafter : MonoBehaviour
             float scaleU = Random.value;
             float scaleVal = Mathf.Lerp(cloudPosMin.y, cPos.y, scaleU);
             //smaller clouds with smaller scaleU should be nearer the ground
+            cPos.y = Mathf.Lerp(cloudPosMin.y, cPos.y, scaleU);
+            //smaller clouds should be further away
             cPos.z = 100 - 90 * scaleU;
             //apply these transforms to the cloud
             cloud.transform.position = cPos;
