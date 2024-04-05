@@ -71,9 +71,14 @@ public class ProjectileLine : MonoBehaviour
             //it adds an extra bit of line to aid aiming later
             points.Add(pt + launchPosDiff);
             points.Add(pt);
-            line.positionCount = points.Count;
-            line.SetPosition(points.Count - 1, lastPoint);
+            line.positionCount = 2;
+            //sets the first two points
+
+            line.SetPosition(0, points[0]);
+            line.SetPosition(1, points[1]);
+            //enables line renderer
             line.enabled = true;
+            /////HERE
 
         }
 

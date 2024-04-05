@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum GameMode
 {
@@ -14,9 +15,9 @@ public class MissionDemolition : MonoBehaviour
 {
     static private MissionDemolition S; //a private singleton
     [Header("Set in Inspector")]
-    public Text uitLevel;// the UIText_Level text
-    public Text uitShots;// The UIText_Shots Text
-    public Text uitButton;//the text on the UIButton_View
+    public TMP_Text uitLevel;// the UIText_Level text
+    public TMP_Text uitShots;// The UIText_Shots Text
+    public TMP_Text uitButton;//the text on the UIButton_View
     public Vector3 castlePos; //The place to put castles
     public GameObject[] castles;//an array of the castles
 
@@ -116,7 +117,7 @@ public class MissionDemolition : MonoBehaviour
 
             case "Show Both":
                 FollowCam.POI = GameObject.Find("ViewBoth");
-                uitButton.text = "Show SLingshot";
+                uitButton.text = "Show Slingshot";
                 break;
         }
     }
