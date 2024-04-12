@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //libraries for accessing scenes
+using UnityEditor;
 
 public enum GameState { gameStarted, gamePlaying, gameEnded, gameLevelEnded, gamePaused, gameExited, gameTesting };
 //enum of game states (work like it's own class)
@@ -217,7 +218,7 @@ public class GameManager : MonoBehaviour
 
             case GameState.gameExited:
                 Debug.Log("Game Exited");
-                UnityEditor.EditorApplication.isPlaying = false;
+               // UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit();
                 break;
 
