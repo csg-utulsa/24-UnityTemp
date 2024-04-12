@@ -17,6 +17,7 @@ public class MissionDemolition : MonoBehaviour
     [Header("Set in Inspector")]
     public TMP_Text uitLevel;// the UIText_Level text
     public TMP_Text uitShots;// The UIText_Shots Text
+    public TMP_Text uitFewestShots;
     public TMP_Text uitButton;//the text on the UIButton_View
     public Vector3 castlePos; //The place to put castles
     public GameObject[] castles;//an array of the castles
@@ -69,6 +70,7 @@ public class MissionDemolition : MonoBehaviour
         //show the data in the Gui texts
         uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         uitShots.text = "Shots Taken: " + shotsTaken;
+        uitFewestShots.text = "Fewest Shots: " + FewestShots.recordedShots;
 
     }
     // Update is called once per frame

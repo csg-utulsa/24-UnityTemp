@@ -82,6 +82,14 @@ public class ProjectileLine : MonoBehaviour
 
         }
 
+        else
+        {
+            points.Add(pt);
+            line.positionCount = points.Count;
+            line.SetPosition(points.Count - 1, lastPoint);
+            line.enabled = true;
+        }
+
     }
     public Vector3 lastPoint
     {
