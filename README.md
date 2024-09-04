@@ -1,9 +1,15 @@
 # Assignment Name
+
 ## Details
+
 **Title:** Name of Game
+
 **Platform:** PC Game
+
 **Genre:** (e.g.Platformer, Shooter, Adventure)
+
 **Rating:** E
+
 **Target Market:** Ages 6+, casual gamers
 
 ## Game Overview: 
