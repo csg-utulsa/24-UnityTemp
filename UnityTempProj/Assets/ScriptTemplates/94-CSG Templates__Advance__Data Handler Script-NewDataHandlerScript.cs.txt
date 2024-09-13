@@ -2,7 +2,7 @@
 * COPYRIGHT       : Year
 * PROJECT         : Name of Project or Assignment script is used for.
 * FILE NAME       : #SCRIPTNAME#.cs
-* DESCRIPTION     : Short Description of script.
+* DESCRIPTION     : Short Description of Data Handler script.
 *                    
 * REVISION HISTORY:
 * Date 			Author    		        Comments
@@ -16,26 +16,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    #ROOTNAMESPACEBEGIN#
+#ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
 {
-    // Awake is called once at instantiation
-    void Awake()
-    {
-        #NOTRIM#
-    }//end Awake()
+    [SerializeField] private string dataFileName;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        #NOTRIM#
+        LoadData();
     }//end Start()
 
-    // Update is called once per frame
-    void Update()
+    // Loads data from a specified file
+    private void LoadData()
     {
+        // Load data from file
         #NOTRIM#
-    }//end Update()
 
+    }//end LoadData()
+
+   // Saves data to a specified file
+    private void SaveData()
+    {
+        // Save data to file
+        #NOTRIM#
+
+    }//end SaveData()
 }
 #ROOTNAMESPACEEND#

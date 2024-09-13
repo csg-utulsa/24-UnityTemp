@@ -2,7 +2,7 @@
 * COPYRIGHT       : Year
 * PROJECT         : Name of Project or Assignment script is used for.
 * FILE NAME       : #SCRIPTNAME#.cs
-* DESCRIPTION     : Short Description of script.
+* DESCRIPTION     : UI manager to handle different UI elements.
 *                    
 * REVISION HISTORY:
 * Date 			Author    		        Comments
@@ -16,26 +16,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    #ROOTNAMESPACEBEGIN#
+#ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
 {
-    // Awake is called once at instantiation
-    void Awake()
-    {
-        #NOTRIM#
-    }//end Awake()
+    // Array to hold references to the UI panels in the scene
+    [SerializeField] private GameObject[] panels;
 
-    // Start is called before the first frame update
-    void Start()
+    //Show specific panel by index
+    public void ShowPanel(int index)
     {
-        #NOTRIM#
-    }//end Start()
 
-    // Update is called once per frame
-    void Update()
-    {
-        #NOTRIM#
-    }//end Update()
+       // Hide each panel in the array
+       foreach (var panel in panels)
+        {
+            panel.SetActive(false);
+        }
 
+        //Activate the panel at the specified index
+        panels[index].SetActive(true);
+
+    }//end ShowPanel()
 }
 #ROOTNAMESPACEEND#

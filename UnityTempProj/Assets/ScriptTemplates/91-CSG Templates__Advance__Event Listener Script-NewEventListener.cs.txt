@@ -2,7 +2,7 @@
 * COPYRIGHT       : Year
 * PROJECT         : Name of Project or Assignment script is used for.
 * FILE NAME       : #SCRIPTNAME#.cs
-* DESCRIPTION     : Short Description of script.
+* DESCRIPTION     : Short Description of event handler.
 *                    
 * REVISION HISTORY:
 * Date 			Author    		        Comments
@@ -16,26 +16,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    #ROOTNAMESPACEBEGIN#
+#ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
 {
-    // Awake is called once at instantiation
-    void Awake()
-    {
-        #NOTRIM#
-    }//end Awake()
+    public delegate void EventAction();
+    public static event EventAction OnEventTriggered;
 
-    // Start is called before the first frame update
-    void Start()
+    //OnEnable is called when the game object is enabled (activated)
+    private void OnEnable()
     {
-        #NOTRIM#
-    }//end Start()
+        OnEventTriggered += HandleEvent;
+    }//end OnEnable()
 
-    // Update is called once per frame
-    void Update()
+    //OnDisable is called when the game object is disabled (not active)
+    private void OnDisable()
     {
+        OnEventTriggered -= HandleEvent;
+    }//end OnDisable()
+
+    // Handles the custom event when triggered
+    private void HandleEvent()
+    {
+        // Respond to the event
         #NOTRIM#
-    }//end Update()
+    }//end HandleEvent()
 
 }
 #ROOTNAMESPACEEND#

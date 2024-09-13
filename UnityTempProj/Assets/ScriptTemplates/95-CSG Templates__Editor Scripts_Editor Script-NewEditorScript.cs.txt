@@ -1,0 +1,39 @@
+/*******************************************************************
+* COPYRIGHT       : Year
+* PROJECT         : Name of Project or Assignment script is used for.
+* FILE NAME       : #SCRIPTNAME#.cs
+* DESCRIPTION     : Short Description of Editor Script.
+*                    
+* REVISION HISTORY:
+* Date 			Author    		        Comments
+* ---------------------------------------------------------------------------
+* 2000/01/01		Developer's Name    		 Created <short comment of changes>
+* 
+*
+/******************************************************************/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+
+#ROOTNAMESPACEBEGIN#
+[CustomEditor(typeof(#TARGETSCRIPT#))]
+public class #SCRIPTNAME# : Editor
+{
+
+    // OnInspectorGUI() is used to customize the Inspector window's GUI for a script component 
+    public override void OnInspectorGUI()
+    {
+        // Ensure the serialized object is up-to-date with the latest data
+        serializedObject.Update();
+
+        // Custom inspector GUI code here
+        #NOTRIM#
+
+        // ApplyModifiedProperties() applies any changes made to the serialized object back to the target script
+        serializedObject.ApplyModifiedProperties();
+    }//end OnInspectorGUI() 
+
+}
+#ROOTNAMESPACEEND#

@@ -2,7 +2,7 @@
 * COPYRIGHT       : Year
 * PROJECT         : Name of Project or Assignment script is used for.
 * FILE NAME       : #SCRIPTNAME#.cs
-* DESCRIPTION     : Short Description of script.
+* DESCRIPTION     : Short Description of ScriptableObject.
 *                    
 * REVISION HISTORY:
 * Date 			Author    		        Comments
@@ -16,26 +16,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : MonoBehaviour
+#ROOTNAMESPACEBEGIN#
+[CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "ScriptableObjects/#SCRIPTNAME#")]
+public class #SCRIPTNAME# : ScriptableObject
 {
-    // Awake is called once at instantiation
-    void Awake()
-    {
+    // Add fields and methods for ScriptableObject data here
         #NOTRIM#
-    }//end Awake()
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        #NOTRIM#
-    }//end Start()
-
-    // Update is called once per frame
-    void Update()
-    {
-        #NOTRIM#
-    }//end Update()
-
 }
 #ROOTNAMESPACEEND#
