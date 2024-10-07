@@ -10,20 +10,26 @@ public class Script_PlayerMovement : MonoBehaviour
     public GameObject bullet;
 
     GameObject newBullet;
-    public float moveFactor;
+    public float moveFactorX;
+    public float moveFactorY;
 
     public float cooldown;
     Vector3 pos;
     InputAction moveAction;
     InputAction shootAction;
 
+    float timer;
+
+    Vector3 offset = new Vector3(.3f, 0, 0);
+
     
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         shootAction = InputSystem.actions.FindAction("Shoot");
-        transform.position = new Vector3(-9.5f, 0.0f, 0.0f);
         pos = transform.position;
+
+        timer = 0.0f;
     }
 
     // Update is called once per frame
@@ -31,14 +37,16 @@ public class Script_PlayerMovement : MonoBehaviour
     {
 
         Vector2 moveVal = moveAction.ReadValue<Vector2>();
-        Debug.Log(moveVal.x);
-        pos.x += moveVal.x*moveFactor*Time.deltaTime;
-        pos.y += moveVal.y*moveFactor*Time.deltaTime;
+        pos.x += moveVal.x*moveFactorX*Time.deltaTime;
+        pos.y += moveVal.y*moveFactorY*Time.deltaTime;
         transform.position = pos;
 
-        if(shootAction.IsPressed()){
+        timer += Time.deltaTime;
+
+        if(shootAction.IsPressed() && (cooldown <= timer)){
             newBullet = Instantiate(bullet);
-            newBullet.transform.position = transform.position;
+            newBullet.transform.position = transform.position + offset;
+            timer = 0.0f;
         }
 
 
