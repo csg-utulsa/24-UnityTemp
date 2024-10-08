@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - Deleter
   layers:
   - Default
   - TransparentFX

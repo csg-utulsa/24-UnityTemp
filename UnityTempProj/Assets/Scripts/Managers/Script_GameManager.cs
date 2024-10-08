@@ -20,7 +20,8 @@ public class Script_GameManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         if(timer >= spawnRate){
-            Instantiate(enemy);
+            GameObject newEnemy = Instantiate(enemy);
+            newEnemy.transform.position = new Vector3(10f, -3f, 0f);
             timer = 0;
         }
     }
