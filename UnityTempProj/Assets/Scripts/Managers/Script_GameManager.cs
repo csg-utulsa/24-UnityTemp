@@ -6,6 +6,9 @@ public class Script_GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public int misses;
+    public int shots;
+    
     public GameObject enemy;
     public float spawnRate;
     float timer;
@@ -24,5 +27,11 @@ public class Script_GameManager : MonoBehaviour
             newEnemy.transform.position = new Vector3(10f, -3f, 0f);
             timer = 0;
         }
+    }
+
+
+
+    public void dead(){
+        Debug.Log("Player Died");
     }
 }

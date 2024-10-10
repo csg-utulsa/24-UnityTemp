@@ -15,7 +15,8 @@ public class Script_EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left*Time.deltaTime*speed + new Vector3(0f, Mathf.Sin(transform.position.x)/15, 0);
+        transform.position += Vector3.left*Time.deltaTime*speed;
+        transform.position = new Vector3(transform.position.x, Mathf.Sin(transform.position.x)*2, 0);
     }
 
     private void OnTriggerEnter(Collider other){
@@ -26,8 +27,7 @@ public class Script_EnemyController : MonoBehaviour
         }
         if(other.tag == "Player"){
             Object.Destroy(this.gameObject);
-            //TODO: add player damage logic
-            Debug.Log("The player doesnt get hurt yet");
+            other.gameObject.GetComponent<Script_PlayerMovement>().damage();
         }
         if(other.tag == "Deleter"){
             Debug.Log("Hit Deleter, removing object");

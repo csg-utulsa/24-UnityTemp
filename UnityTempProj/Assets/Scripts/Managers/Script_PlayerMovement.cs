@@ -8,15 +8,21 @@ public class Script_PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject bullet;
+    public GameObject gameManager;
 
     GameObject newBullet;
     public float moveFactorX;
     public float moveFactorY;
 
     public float cooldown;
+
+    public int health;
+
     Vector3 pos;
     InputAction moveAction;
     InputAction shootAction;
+
+    Animator animator;
 
     float timer;
 
@@ -28,6 +34,7 @@ public class Script_PlayerMovement : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         shootAction = InputSystem.actions.FindAction("Shoot");
         pos = transform.position;
+        animator = this.transform.GetChild(0).GetComponent<Animator>();
 
         timer = 0.0f;
     }
@@ -43,13 +50,25 @@ public class Script_PlayerMovement : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(shootAction.IsPressed() && (cooldown <= timer)){
+        if(shootAction.IsPressed() && (cooldown <= timer) && !(GameObject.FindGameObjectsWithTag("Bullet").Length >= 3)){
             newBullet = Instantiate(bullet);
             newBullet.transform.position = transform.position + offset;
             timer = 0.0f;
+            gameManager.GetComponent<Script_GameManager>().shots += 1;
         }
 
 
 
     }
+
+
+    public void damage(){
+        health += -1;
+        if(health <= 0){
+            animator.SetBool("is_Dead", true);
+            gameManager.GetComponent<Script_GameManager>().dead();
+        }
+    }
+
+
 }
