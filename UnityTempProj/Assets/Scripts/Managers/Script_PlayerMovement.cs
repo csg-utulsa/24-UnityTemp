@@ -62,8 +62,8 @@ public class Script_PlayerMovement : MonoBehaviour
     }
 
 
-    public void damage(){
-        health += -1;
+    public void damage(int damage){
+        health += -damage;
         if(health <= 0){
             animator.SetBool("is_Dead", true);
             gameManager.GetComponent<Script_GameManager>().dead();
